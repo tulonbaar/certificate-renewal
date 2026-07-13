@@ -293,8 +293,8 @@ The setup script creates a cron job for weekly renewal:
 
 ## 🚨 Prerequisites Checklist
 
-- [ ] Jenkins agent with label `0.240` is running
-- [ ] SSH keys configured under `/root/.ssh/` for all target hosts (`ch1`–`ch3`, `rh1`–`rh4`)
+- [ ] Jenkins agent with label `0.240` is running (Change label if needed)
+- [ ] SSH keys configured under `/root/.ssh/` for all target hosts (`ch1`–`ch3`, `rh1`–`rh4`) (Setup ssh keys before starting scripts and update `HOSTS` names)
 - [ ] `/var/jenkins/_workdir/cloudflare.ini` present with a valid Cloudflare API token
 - [ ] `/var/jenkins/_workdir/domains.conf` present with the list of domains
 - [ ] Certbot installed: `apt install certbot python3-certbot-dns-cloudflare`
