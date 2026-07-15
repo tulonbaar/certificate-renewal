@@ -15,6 +15,7 @@ CLOUDFLARE_CREDENTIALS="$SCRIPT_DIR/cloudflare.ini"
 EMAIL="YOUR_ACME_EMAIL@example.com"
 PRIMARY_DOMAIN="yourdomain.com"
 RENEWAL_THRESHOLD=30  # Days before expiry to renew
+DNS_PROPAGATION_SECONDS=90  # Seconds to wait for DNS propagation (default is 10)
 
 # Colors for output
 RED='\033[0;31m'
@@ -186,7 +187,7 @@ generate_certificate() {
     log "Using domains:$domains"
     
     # Prepare certbot command with optional force renewal
-    local certbot_args="certonly --dns-cloudflare --dns-cloudflare-credentials $CLOUDFLARE_CREDENTIALS --non-interactive --agree-tos --email $EMAIL --expand"
+    local certbot_args="certonly --dns-cloudflare --dns-cloudflare-credentials $CLOUDFLARE_CREDENTIALS --dns-cloudflare-propagation-seconds $DNS_PROPAGATION_SECONDS --non-interactive --agree-tos --email $EMAIL --expand"
     
     # Add force renewal flag if needed
     if [ "$FORCE_RENEWAL" = true ]; then
