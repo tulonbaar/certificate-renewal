@@ -1,2 +1,3 @@
-domains.conf
-cloudflare.ini
+*.conf
+*.ini
+cert/*
